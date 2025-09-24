@@ -1,0 +1,11 @@
+Thomas M. Tauris, Edward P.J. van den Heuvel - Physics of Binary Star Evolution-Princeton University Press (2023).pdf
+*.gz
+*.aux
+*.log
+*.glo
+*.out
+*.glg
+*.ist
+*.toc
+*.gls
+.vscode/ltex.dictionary.en-US.txt

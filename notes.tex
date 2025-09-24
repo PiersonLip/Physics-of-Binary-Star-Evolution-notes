@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{darkmode}
+\usepackage{amsmath,amssymb}
+\usepackage[colorlinks]{hyperref}
+\usepackage[automake]{glossaries-extra} % <-- builds glossary automatically with latexmk/Overleaf
+
+\title{Default Title}
+\author{Pierson Lipschultz}
+
+\enabledarkmode
+
+% GOOD: label has no spaces; display text goes in name=
+\newglossaryentry{algol-type}{
+  name={Algol Type},
+  description={Type of eclipsing binary with properties similar to the Algol system. It appears paradoxical because the more evolved star has a smaller mass, explained by mass transfer.}
+}
+
+
+\makeglossaries % harmless with glossaries-extra; required if you switch to glossaries
+
+\begin{document}
+\tableofcontents
+
+\section{Intro}
+\subsection{Importance of binaries}
+\begin{list}{-}{}
+\item Plays a key role in the evo of massive stars
+\item first presumed to exist because of \gls{algol-type} stars. These stars were explained with mass transfer
+\item source of strongest GW rad, GrBs, and have r-process elements.
+\item Likely cause of SNe Ia, Ib, Ic (SN with a lack of hydrogen in their spectra) 
+\item cause of low-intermediate mass stars with odd chemical compositions, ex. barium stars
+\end{list}
+
+\subsection{Kilonova}
+\begin{list}{-}{}
+\item allows exact placing of a merger in the sky
+\end{list}
+
+\subsection{XrBs}
+\begin{list}{-}{}
+\item Without mass transfer, most systems would not survive the SN of the primary, instead becoming unbound
+\end{list}
+
+\clearpage
+
+\printglossaries
+\end{document}
