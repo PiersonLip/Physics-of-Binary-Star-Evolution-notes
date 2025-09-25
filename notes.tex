@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{darkmode}
 \usepackage{amsmath,amssymb}
+\usepackage{gensymb}
 \usepackage[colorlinks]{hyperref}
 \usepackage[automake]{glossaries-extra} % <-- builds glossary automatically with latexmk/Overleaf
 
@@ -15,6 +16,15 @@
   description={Type of eclipsing binary with properties similar to the Algol system. It appears paradoxical because the more evolved star has a smaller mass, explained by mass transfer.}
 }
 
+\newglossaryentry{kilonova}{
+name={Kilonova},
+description={A merger of either a NS+NS (DNS) binary or a NS+BH binary. Results in a bright signal resulting from the rapid decay the the NS material. Results in a peak brightness around 1000x that of a standard nova, hence the name. Likely a standard candle.}
+}
+
+\newglossaryentry{proper-motion}{
+name = {Proper Motion},
+description = {The motion of a star in the sky relative to more distant stars. Allows us understand the velocity of a star relative to the earth}
+}
 
 \makeglossaries % harmless with glossaries-extra; required if you switch to glossaries
 
@@ -22,25 +32,68 @@
 \tableofcontents
 
 \section{Intro}
-\subsection{Importance of binaries}
+\noindent \textbf{\large Importance of binaries}
 \begin{list}{-}{}
-\item Plays a key role in the evo of massive stars
+\item Plays a key role in the evolution of massive stars
 \item first presumed to exist because of \gls{algol-type} stars. These stars were explained with mass transfer
-\item source of strongest GW rad, GrBs, and have r-process elements.
+\item Mergers are a key source of strongest GW rad, GrBs, and have r-process elements. (i.e. in \gls{kilonova}) 
 \item Likely cause of SNe Ia, Ib, Ic (SN with a lack of hydrogen in their spectra) 
-\item cause of low-intermediate mass stars with odd chemical compositions, ex. barium stars
+\item cause of low-intermediate mass stars with odd chemical compositions, ex. barium stars. 
 \end{list}
 
-\subsection{Kilonova}
+\section{Visual binaries and the universal validity of the laws of physics}
+
+\subsection{Visual binaries}
 \begin{list}{-}{}
-\item allows exact placing of a merger in the sky
+
+\item Visual binary \(\rightarrow\) two in proximity through a telescope
+
+\item Physical \(\rightarrow\) gravitonalty bound orbits
+
+\item Optical \(\rightarrow\) happen to be close together in the sky
+
 \end{list}
 
-\subsection{XrBs}
 \begin{list}{-}{}
-\item Without mass transfer, most systems would not survive the SN of the primary, instead becoming unbound
+\item Visual binaries have longer orbits
+\item the proof of physical binaries (and not just coincidence) was proved in 1767 by John Michell
+\item Shows that Newton's law of gravity applied outside just our solar system
 \end{list}
-
+\subsection{Astrometric Binaries}
+\noindent \textbf{\large Wide binaries} 
+\begin{list}{-}{}
+\item Binaries where one of the stars is too faint to directly observe
+\item Can still be detected by the following \gls{proper-motion} of the visible component
+\item Center of mass moves along, star orbits this center, showing a periodic wiggle in its apparent motion (I wonder how this can be muddled with and/or separated from parallax. I'm guessing they are in different planes?? (next graphic helped(it wiggles slightly due to yearly parallax, however, the proper motion is much greater and over a much longer duration, so it sort of just becomes ``noise'' relative)))
+\end{list}
+\subsection{Spectroscopic Binaries}
+\noindent \textbf{\large Spectroscopic Binaries}
+\begin{list}{-}{}
+\item A binary which is determined to be a binary due to its spectra
+\item double-lined binary (SB2) \(\rightarrow\) when both sets of spectral lines can be observed redshifting and blueshifting
+\item single-lined (SB1) \(\rightarrow\) when only set of spectral lines can be observed redshifting/blueshifting
+\item this is due to Doppler shifting when one of the binaries is relativistically coming towards us and the other away
+\item Doppler shift (\(\Delta\lambda\)) can be related to the radial velocity (the component of the velocity on our line of sight)
+\item \[\frac{\Delta\lambda}{\lambda} = \frac{v_{rad}}{c}\]
+\end{list}
+\subsection{Eclipsing Binaries}
+Binaries where one star passes in front of the other at some point during its period
+\begin{list}{-}{}
+\item A partial eclipse will happen if  
+\item \[\sin(\phi) < \sin(\phi_0) = \frac{R_1+R_2}{a}\]
+\item where inclination \(i\) is defined as the angle between the orbital plane and the plane of the sky \(\rightarrow\) \(\phi = 90 \degree - i\) and \(a\) is the orbital radius  
+\item and a total eclipse will occur if 
+\item \[\sin(\phi) < \sin(\phi_1) = \frac{R_1-R_2}{a}\]
+\item We assume that the angles between line of sight and orbital planes are random, the probability of having an angle between 0 and \(\phi_0\) is the fraction of the surface area of the half sphere between the pole and the circle at an angle \(\phi_0\) from the pole, which is equal to \(2\pi(1-\cos(\phi_0)\). While the area of the half sphere is \(2\pi\)\footnote{Try this myself and verify that this makes sense}. Thus the probability of having an eclipse is 
+\item \[\mathcal{F}_{eclipse} = (1-\cos\phi_0)\]
+\item Assuming \(\phi_0\) small
+\item \[\sin\phi \simeq \phi_0 \simeq \frac{(R_1 +R)_2}{a}\]
+\item due to series expansion\footnote{for sure do this at some point}
+\item \[\cos\phi_0 \simeq 1 - \frac{(R_1 + R_2)^2}{2a^2}\]
+\item Thus
+\item \[\mathcal{F}_{eclipse} =\frac{(R_1 + R_2)^2}{2a^2} \]
+\item Because \(R_1 +R_2 < a\), eclipses are most likely for either dwarf stars with a  very close orbital radius, or wide binaries where at least one star is a giant 
+\end{list}
 \clearpage
 
 \printglossaries
