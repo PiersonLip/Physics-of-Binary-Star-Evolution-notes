@@ -3,14 +3,14 @@
 \usepackage{amsmath,amssymb}
 \usepackage{gensymb}
 \usepackage[colorlinks]{hyperref}
-\usepackage[automake]{glossaries-extra} % <-- builds glossary automatically with latexmk/Overleaf
+\usepackage[automake]{glossaries-extra}
 
 \title{Default Title}
 \author{Pierson Lipschultz}
 
 \enabledarkmode
 
-% GOOD: label has no spaces; display text goes in name=
+
 \newglossaryentry{algol-type}{
   name={Algol Type},
   description={Type of eclipsing binary with properties similar to the Algol system. It appears paradoxical because the more evolved star has a smaller mass, explained by mass transfer.}
@@ -26,7 +26,7 @@ name = {Proper Motion},
 description = {The motion of a star in the sky relative to more distant stars. Allows us understand the velocity of a star relative to the earth}
 }
 
-\makeglossaries % harmless with glossaries-extra; required if you switch to glossaries
+\makeglossaries 
 
 \begin{document}
 \tableofcontents
