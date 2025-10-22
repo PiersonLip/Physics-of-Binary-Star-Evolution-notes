@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{darkmode}
+\usepackage{amsmath,amssymb}
+\usepackage{gensymb}
+\usepackage[colorlinks]{hyperref}
+\usepackage[automake]{glossaries-extra} 
+
+
+\author{Pierson Lipschultz}
+
+\enabledarkmode
+\makeglossaries 
+
+\begin{document}
+
+\section{Evolution}
+
+\begin{list}{-}{}
+\item Consists of a large number and variety of ``steps'' or solvers
+\item Each time a system evolves through one of steps, or meets some other criteria, it is then ``handed off'' to one of these solvers, which then calculates how it evolves 
+\item These steps are largely from MESA (?)
+\item 
+\end{list}
+
+
+\noindent \textbf{\large Use}
+\begin{list}{-}{}
+\item You create a class, like ``pop''
+\item onto this class you pass all of your evolution augments, properties, configs, etc
+\item this largely boils down to \textit{how} to evolve and \textit{what} to evolve
+\item then you ``evolve'' this class 
+\item that allows you to use a ``manager'' to view the simulated data. This manager is a subclass called by ``pop''.manager
+\item the simulated binaries are stored as objects, where each object is the binary, \textit{which itself} also holds objects for each of the stars 
+\end{list}
+
+\noindent \textbf{\large Custom Single Binary Evolution}
+\begin{list}{-}{}
+\item you can once more create a class with the properties of your system. This includes initial time, masses, states, etc
+\item then you pass .evolve to it again
+\item then you can repeat above
+\end{list}
+\printglossaries
+\end{document}

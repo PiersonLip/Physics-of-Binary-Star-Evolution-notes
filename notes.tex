@@ -3,14 +3,13 @@
 \usepackage{amsmath,amssymb}
 \usepackage{gensymb}
 \usepackage[colorlinks]{hyperref}
-\usepackage[automake]{glossaries-extra} % <-- builds glossary automatically with latexmk/Overleaf
+\usepackage[automake]{glossaries-extra}
 
 \title{Default Title}
 \author{Pierson Lipschultz}
 
 \enabledarkmode
 
-% GOOD: label has no spaces; display text goes in name=
 \newglossaryentry{algol-type}{
   name={Algol Type},
   description={Type of eclipsing binary with properties similar to the Algol system. It appears paradoxical because the more evolved star has a smaller mass, explained by mass transfer.}
@@ -109,7 +108,90 @@ name = {WNh},
 description = {Very massive stars with strong stellar winds, leading to spectra very similar to that of WRs, but with with hydrogen emission}
 }
 
-\makeglossaries % harmless with glossaries-extra; required if you switch to glossaries
+\newglossaryentry{MSP}{
+name = {MSP},
+description = {Milisecond Pulsar. \\ A pulsar with a spin period \(\sim 30\)ms}
+}
+
+\newglossaryentry{GWR}{
+name = {GWR},
+description = {gravitnal wave radiation.\\ Process of stars losing angular momentum through the radiation of gravitnal waves}
+}
+
+\newglossaryentry{MB}{
+name = {MB},
+description = {Magnetic Breaking. \\ Process where two stars ``couple'', causing a loss of angular momentum}
+}
+
+\newglossaryentry{Recylced-Pulsar}{
+name = {Recylced Pulsar},
+description = {A pulsar which obtained its rapid spin through accretion. Has weaker magnetic fields then newly formed NSs }
+}
+
+\newglossaryentry{TI-SNe}{
+name = {Type I SNe},
+description = {A SNe \textbf{without} hydrogen in its spectra\\ Generally standard candles. They are thermonuclear explosions of carbon-oxygen WDs. See section(\ref{WD-SNe})}
+}
+
+
+\newglossaryentry{TIb-SNe}{
+name = {Type I SNe},
+description = {A SNe \textbf{without} hydrogen and with helium in its spectra. \\ Caused by collaspe of the naked helium core star.}
+}
+
+
+\newglossaryentry{TIc-SNe}{
+name = {Type I SNe},
+description = {A SNe \textbf{without} hydrogen or helium in its spectra. \\ A star where both the hydrogen and helium envelopes have been fully stripped.}
+}
+
+
+\newglossaryentry{TII-SNe}{
+name = {Type II SNe},
+description = {A SNe \textbf{with} hydrogen in its spectra \\ generally found in galaxies with high star formation rate. Likely caused by core collaspe}
+}
+
+\newglossaryentry{WR}{
+name = {WR},
+description = {Wolf-Rayet star. \\A star so massive (generally more than \(\sim25M_\odot\)) that it sheds its hydrogen layer due to stellar wind. It may also shed its helium layer as well.}
+}
+
+\newglossaryentry{Chandrasekhar-limit}{
+name = {Chandrasekhar limit},
+description = {Maxium mass of a WD, \(\sim1.4M_\odot\)}
+}
+
+\newglossaryentry{edge-limit-detonation}{
+name = {edge limit detonation},
+description = {A WD SNe trigged by accreted H/He on the suface which sends a shockwave into the star, trigging runaway fusion.}
+}
+
+\newglossaryentry{SD}{
+name = {SD},
+description = {\textit{Single Degenerate}, donor is a normal star, accretor is WD}
+}
+
+\newglossaryentry{DD}{
+name = {DD},
+description = {\textit{Double Degenerate}, donor as well as accretor are WDs}
+}
+
+\newglossaryentry{Blue-stragglers}{
+name = {Blue stragglers},
+description = {}
+}
+
+\newglossaryentry{Barium-stars}{
+name = {Barium stars},
+description = {G and K type gaints with a `overabundance' of barium and other s-process elements \\Wide binaries with longer periods}
+}
+
+\newglossaryentry{WNh}{
+name = {WNh},
+description = {Very massive stars with strong stellar winds, leading to spectra very similar to that of WRs, but with with hydrogen emission}
+}
+
+\makeglossaries
 
 \begin{document}
 \tableofcontents
