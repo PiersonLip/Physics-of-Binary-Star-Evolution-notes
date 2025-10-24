@@ -109,6 +109,36 @@ name = {WNh},
 description = {Very massive stars with strong stellar winds, leading to spectra very similar to that of WRs, but with with hydrogen emission}
 }
 
+\newglossaryentry{eddington-limit}{
+name = {Eddington Limit},
+description = {\(\dot{M}_{Edd} \simeq 1.8 \times 10^{-8} M_\odot \mathrm{yr}^{-1}\) For NS \\ Maxium rate of mass transfer onto a NS or BH }
+}
+
+\newglossaryentry{thermal-timescale}{
+name = {thermal timescale},
+description = {}
+}
+
+\newglossaryentry{consv-RLO}{
+name = {Conservative Roche lobe overflow},
+description = {RLO where the total mass and angular momentum remain constant. Is an example of Huangs \textit{slow mode}}
+}
+
+\newglossaryentry{ML-CircumDisk}{
+name = {Mass loss from a circumbinary disk}, %circumbinary disk?? i hardly know her!
+description = {Ejected mass from mass transfer/winds a ring orbiting the system (a circumbinary disk).\\ Refered to by Huang as an \textit{intermediate mode}. Due to tidal interactions these rings ``extract'' angular momentum from the system }
+}
+
+\newglossaryentry{Case-A-RLO}{
+name = {Case A RLO},
+description = {RLO during donor hydrogen core burning}
+}
+
+\newglossaryentry{Case-B-RLO}{
+name = {Case B RLO},
+description = {}
+}
+
 \makeglossaries 
 
 \begin{document}
@@ -310,8 +340,46 @@ the rest of this section follows the ``way too niche of math to write down'' thi
 \item This is some black magic mathmathmatic reasoning 
 \item Co-rotating binaries with have a tidal bulge that can be `easily' calculated
 \item also love the seemingly kinda personal rant about how the RL diagram is actually wrong, then provides a diagram which is way less intuitive  
+\end{list}
+
+\subsection{Mass transfer Galore}
+\begin{list}{-}{}
+\item Mass transfer through \(L_1\) does not majority effect angular momentum, however, transfer through \(L_2\) does, causing a shrinkage in separation, and typically mergers
+\item Different ways of modeling the transfer, depending on how you treat angular momentum with respect to the transfer
+\item Orbit widens if the donor is less massive then accreter, and shrinks if the donor is more
+\end{list}
+
+\subsection{Types of RLO}
+\begin{list}{-}{}
+\item \gls{consv-RLO}
+\item \gls{ML-CircumDisk}
+\end{list}
+
+\subsection{General Notes}
+\begin{list}{-}{}
+\item Mass transfer onto NS and BH are limited by the \gls{eddington-limit}
+\item However, mass transferred off of the donor is at the rate of the evolution of its envelope. (\gls{thermal-timescale})
+\item mass transfer off of the donor is much greater (2 to 4 orders of magnitude) then the maximum accretion rate thus, the bulk of the mass will be ``blown away''
+\item if more than half of the total mass of the binary system is lost in a SN, the system will become unbounded 
+\item What on earth is a applegate mechanism
+\item and what is gravitational quadrupole coupling
+\item ^^ im pretty sure its just when the oblateness of the star various from some convection stuff, which causes the period to variation causing period variations 
+\end{list}
+
+\subsection{Stability Criteria}
+\begin{list}{-}{}
+\item Depends on the response of the star losing mass as well as the RL
+\item more likely to detect it if the mass transfer is stable 
+\item orbit always expands for \(q < 1 \) and always shrinks when \(q = 1.28\)
+\item Depends on whether the donor contracts or swells upon starting to transfer mass
+\item Donors with radiative envelopes (\gls{Case-A-RLO}) or slightly convective envelopes (early \gls{Case-B-RLO}) will typically either shrink or stay the same radius
 \item 
 \end{list}
+
+
+
+
+\pagebreak
 \setcounter{section}{-1}
 \section{Misc}
 \subsection{WD SNe}\label{WD-SNe}
