@@ -1,6 +1,7 @@
 \documentclass{article}
 \usepackage{darkmode}
 \usepackage{amsmath,amssymb}
+\usepackage[stable]{footmisc}
 \usepackage{gensymb}
 \usepackage[colorlinks]{hyperref}
 \usepackage[automake]{glossaries-extra}
@@ -53,13 +54,13 @@ description = {A SNe \textbf{without} hydrogen in its spectra\\ Generally standa
 
 
 \newglossaryentry{TIb-SNe}{
-name = {Type I SNe},
+name = {Type Ib SNe},
 description = {A SNe \textbf{without} hydrogen and with helium in its spectra. \\ Caused by collaspe of the naked helium core star.}
 }
 
 
 \newglossaryentry{TIc-SNe}{
-name = {Type I SNe},
+name = {Type Ic SNe},
 description = {A SNe \textbf{without} hydrogen or helium in its spectra. \\ A star where both the hydrogen and helium envelopes have been fully stripped.}
 }
 
@@ -136,10 +137,48 @@ description = {RLO during donor hydrogen core burning}
 
 \newglossaryentry{Case-B-RLO}{
 name = {Case B RLO},
-description = {}
+description = {This is where the donor star is post hydrogen core/shell burning}
 }
 
+\newglossaryentry{antibiotic-index}{
+name = {antibiotic index},
+description = {Also called a heart capacity ratio. A very very very simplified and abstract defenition is how much a gas will expand when heated. \url{https://en.wikipedia.org/wiki/Heat_capacity_ratio}}
+}
+
+\newglossaryentry{photon-gas}{
+name = {photon gas},
+description = {A `gas-like' collection of photons. This means that they have a tempature, pressure, and entropy. \\ They are most common in black-body equilibrums. \url{https://en.wikipedia.org/wiki/Photon_gas}}
+}
+
+\newglossaryentry{eddington-lum-limit}{
+name = {Eddington (Luminosity) Limit},
+description = {The uper limit of the mass of a star, defined as \(3.2 \times 10^4 \left(\frac{M}{M_\odot}\right)L_\odot\)}
+}
+
+\newglossaryentry{RSG}{
+name = {RSG},
+description = {Red-supergiant \\ Supergaint stars with a spectral class of M or K  }
+}
+
+\newglossaryentry{ONeMg}{
+name = {ONeMg},
+description = {Fill this in later hopefully. Pretty sure it just means Oxygen, Neon and Magnesium?}
+}
+
+\newglossaryentry{chandrasekhar-limit}{
+name = {Chandrasekhar Limit},
+description = {Maxiumum mass of a white dwarf, approx \(M \approx 1.4M_\odot\)\\ This is support be electron degeneracy pressure}
+}
+
+
+
+
+
+
 \makeglossaries 
+
+
+
 
 \begin{document}
 \tableofcontents
@@ -376,10 +415,126 @@ the rest of this section follows the ``way too niche of math to write down'' thi
 \item 
 \end{list}
 
+\subsection{Tidal Evo}
+\begin{list}{-}{}
+\item Grav interaction will cause Tidal Bulges to form
+\item If rotation of the stars is not synced with orbital motion, the movement of the bulges will cause friction, thus dissipating the KE of the star.
+\item If the orbit is eccentric, the effect is greater in magnitude
+\item This leads to the orbit becoming perfectly circular 
+\item Happens faster in systems with closer separations
+\item Tempature can heavily effect orbtial eccentrictiy based on convection rates
+\end{list}
 
+\subsection{CE}
+\begin{list}{-}{}
+\item Trigged by unstable runaway mass transfer
+\item companion star is engulfed in the envelope of the donor
+\item the companion moving through this envelope causing friction, thus reducing angular moment, thus shrinking orbit
+\item In some cases the envelope is ejected, and if it isnt, it leads to merger
+\item Likely progenitor of some planetary nebulae 
+\item Very hard to predict due to unstable nature
+\item Onset is caused by runaway RLO, Darwin instability, or the expansion of the accreting star
+\end{list}
 
+\subsubsection{Stages of CE}
+\begin{list}{-}{}
+\item loss of co-rotation
+\item plunge-in
+\item Slow spiral-in
+\item Envelope Ejection
+\end{list}
+
+\subsubsection{CE ejection}
+\begin{list}{-}{}
+\item Whether not the envelope will be ejected is dependent on how good the system is at converting the GPE into KE, this added KE can then eject the envelope 
+\item This can be described as the efficiency \(\alpha_{CE}\) of converting orbital energy \(\Delta E_{orb}\)
+\item \[E_{bind} = \alpha_{CE}\Delta E_{orb}\] 
+\item Ability to eject a CE depends heavily on the evolutionary status of the donor at the onset of CE
+\item Separation post CE ejection is about 100-1000x smaller than at Onset
+\item \[E_{bind} \equiv -\frac{GM_{donor} M_{env}}{\lambda R_{donor}}\]
+\item \(\lambda\) various heavily on stealer mass and evolutionary status
+\item For low max systems the envelopes of the donors are typically ejected, as \(|E_{bind}|\) is typically quite small
+\item Many HMXBs with NSs will not survive CE and hence DNS mergers are rare, although these do theoretically form Thorne-Zytkov objects
+\item 
+\end{list}
 
 \pagebreak
+\setcounter{section}{7}
+\section{Evolution of single stars}
+\subsection{Why stars do stuff\footnote{trying to focus on some of the math here, cause while i conceptually understand it, the math is really neat}}
+\begin{list}{-}{}
+\item A globe of monatomic gas without energy sources and in HSEq follows
+\item \[2E_{th} + E_{pot} = 0\]
+\item \(E_{th}\) is given by 
+\item \[E_{th} = \frac{3}{2}Nk\bar{T} = \frac{3}{2}M(\mathcal{R}/\mu)\bar{T}\]
+\item Where \(N\) is the partcile number in the star, \(k\) is the boltzman constant, \(M\) is the mass of the globe \(\mathcal{R} = ak/m_h\), the ideal gas constant, \(\mu\) is the mean particle mass, in units of \(m_h\) of the hydrogen atom 
+\item \(E_{pot}\) is given by 
+\item \[E_{pot} = -\alpha GM^2/R\] 
+\item Where \(R\) is stellar rad, \(G\) is grav const, and \(\alpha\) is a constant of proportionality of order unity, which depends on the density distribution of the star.
+\item From substitution, we find that
+\item \[\bar{T} = \alpha(\frac{GM}{R}) (\frac{\mu}{3\mathcal{R}})\]
+\item This is import because it shows that internal temp is only depended on the stellar radius, increasing when the star shrinks
+\item Energy loss is given by 
+\item \[E_{tot = E_{th} + E_{pot}} = \frac{1}{2}E_{pot} = -\alpha \frac{GM^2}{2R}\] 
+\item This shows that as \(E_{tot}\) decreases the radius of the star must decrease
+\item However, as shown by \(\bar{T}\),as the star contracts the internal temp increases
+\item This means as the star (or cloud of gas) radius heat away, it actually gets hotter, leading to more radiation, and thus more shrinking
+\item This applies to the star from the moment it is a gas to the end of its life as BH, NS, WD, etc
+\item These equations work well for \gls{antibiotic-index} of  \(\gamma = C_p/C_V = 5/3\), which is great for globes of ionized hydrogen and helium. However, generalized forms can be found with eqs 8.6-8.8
+\item if \(\gamma \leq 4/3\), the star \textbf{cannot} reach HSEq, and thus must collapse or explode
+\item Stars of very high mass have very high luminties, which mean their interior pressure is dominated by \gls{photon-gas}, which has \(\gamma = 4/3\). This sets an upper limit for the mass of a star, also called the \gls{eddington-lum-limit}
+\end{list}
+
+\subsection{Stellar Timescales}
+There are three timescales for single star evo that are relevant for binary stellar evo
+
+\subsubsection{Dynamical Pulsation timescale}
+This is the timescale of how long it takes for a start to restore a perturbation of its HSEq. This can be defined as the time it takes for a sound way with velocity \(c_s\) to cross the stellar radius 
+\[\tau_{dyn} = \frac{R}{c_s} \simeq 50 \text{min}\left(\frac{\bar{\rho_{\odot}}}{\bar{\rho}}\right)^{1/2}\] 
+\\ Where \(\bar{\rho}\) is the mean mass density 
+
+
+\subsubsection{Thermal/Kelvin-Helmholtz timescale}
+Timescale of how long it takes for the star to react to fusion rate not being equal to the radiative energy loss. This is import with pre-main sequence contraction and after the stars fuel has been used
+
+\subsubsection{Nuclear timescale}
+Time it takes for a star to use all of its available fuel
+
+\subsection{High mass evolution\(M \geq 12M_\odot\)}
+\begin{list}{-}{}
+\item Leave behind a collapsing iron core, which creates a NS or BH 
+\item 
+\end{list}
+
+\subsection{Low mass stellar evolution \(M\leq 8M_\odot\)}
+\begin{list}{-}{}
+\item The degenerate mass in the core of the star heavily effects fusion 
+\item For electron degenerate gas, the pressure only depends on the density (and not on the temperature)
+\item This means that this degenerate gas ignites, it has no way of stabilizing itself, leading to a `flash', where it all ignites rapidly. 
+\item This will only stop when the temp reaches a point where the ideal gas is able to also do fusion, at which point the star can actually expand and cool
+\item ``In stars with \(M < 2.3 M_\odot\), the core becomes degenerate during hydrogen shell burning, and when \(M_{he} \approx .47M_\odot\), the helium ignites with a flash, the temp rises to \(\approx10^9\)K, and the degeneracy is removed''
+\item This is not violent to actually disrupt the star
+\item In stars with mass \(2.3m_\odot < M \lesssim 8M_\odot\) they instead ignite carbon in a flash. This is strong enough to disrupt the star (albeit rarely)
+\item However, it is more likely for the star to eject its helium envelope due to helium-shell burning as well as the instability of the \gls{RSG} stage, leaving behind a CO WD.
+\item Because of this CO ignition is rare. 
+\end{list}
+
+\subsubsection{Mass limit at \(\sim 1.2M_\odot\)}
+\begin{list}{-}{}
+\item When hydrogen is exhausted in the star, the star contracts. This causes it to drift sharply left on the HR diagram, until the hydrogen-shell begins fusion causing it to have drift slowly upward and to the right on an HR diagram
+\item 
+\end{list}
+
+\subsection{Stars in the range of \(8-12 M_\odot\) }
+\begin{list}{-}{}
+\item Not very well is known about evolution in this range
+\item Generally, the carbon in the ore will ignite and leave a degenerate \gls{ONeMg} core
+\item This happens after they eject their hydrogen envelope, but in binaries this envelope is lost through mass transfer
+\item This means that the ONeMg core will grow to the \gls{chandrasekhar-limit}, at which point it will then collapse, creating NS and SN explosion
+\item Might also result in \gls{TI-SNe}
+\end{list}
+
+
 \setcounter{section}{-1}
 \section{Misc}
 \subsection{WD SNe}\label{WD-SNe}
