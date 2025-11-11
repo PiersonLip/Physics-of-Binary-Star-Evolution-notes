@@ -3,6 +3,7 @@
 \usepackage{amsmath,amssymb}
 \usepackage[stable]{footmisc}
 \usepackage{gensymb}
+% \usepackage{siunitx}
 \usepackage[colorlinks]{hyperref}
 \usepackage[automake]{glossaries-extra}
 
@@ -23,157 +24,165 @@ description={A merger of either a NS+NS (DNS) binary or a NS+BH binary. Results 
 }
 
 \newglossaryentry{proper-motion}{
-name = {Proper Motion},
-description = {The motion of a star in the sky relative to more distant stars. Allows us understand the velocity of a star relative to the earth}
+name={Proper Motion},
+description={The motion of a star in the sky relative to more distant stars. Allows us understand the velocity of a star relative to the earth}
 }
 
 \newglossaryentry{MSP}{
-name = {MSP},
-description = {Milisecond Pulsar. \\ A pulsar with a spin period \(\sim 30\)ms}
+name={MSP},
+description={Milisecond Pulsar. \\ A pulsar with a spin period \(\sim 30\)ms}
 }
 
 \newglossaryentry{GWR}{
-name = {GWR},
-description = {gravitnal wave radiation.\\ Process of stars losing angular momentum through the radiation of gravitnal waves}
+name={GWR},
+description={gravitnal wave radiation.\\ Process of stars losing angular momentum through the radiation of gravitnal waves}
 }
 
 \newglossaryentry{MB}{
-name = {MB},
-description = {Magnetic Breaking. \\ Process where two stars ``couple'', causing a loss of angular momentum}
+name={MB},
+description={Magnetic Breaking. \\ Process where two stars ``couple'', causing a loss of angular momentum}
 }
 
 \newglossaryentry{Recylced-Pulsar}{
-name = {Recylced Pulsar},
-description = {A pulsar which obtained its rapid spin through accretion. Has weaker magnetic fields then newly formed NSs }
+name={Recylced Pulsar},
+description={A pulsar which obtained its rapid spin through accretion. Has weaker magnetic fields then newly formed NSs }
 }
 
 \newglossaryentry{TI-SNe}{
-name = {Type I SNe},
-description = {A SNe \textbf{without} hydrogen in its spectra\\ Generally standard candles. They are thermonuclear explosions of carbon-oxygen WDs. See section(\ref{WD-SNe})}
+name={Type I SNe},
+description={A SNe \textbf{without} hydrogen in its spectra\\ Generally standard candles. They are thermonuclear explosions of carbon-oxygen WDs. See section(\ref{WD-SNe})}
 }
 
 
 \newglossaryentry{TIb-SNe}{
-name = {Type Ib SNe},
-description = {A SNe \textbf{without} hydrogen and with helium in its spectra. \\ Caused by collaspe of the naked helium core star.}
+name={Type Ib SNe},
+description={A SNe \textbf{without} hydrogen and with helium in its spectra. \\ Caused by collaspe of the naked helium core star.}
 }
 
 
 \newglossaryentry{TIc-SNe}{
-name = {Type Ic SNe},
-description = {A SNe \textbf{without} hydrogen or helium in its spectra. \\ A star where both the hydrogen and helium envelopes have been fully stripped.}
+name={Type Ic SNe},
+description={A SNe \textbf{without} hydrogen or helium in its spectra. \\ A star where both the hydrogen and helium envelopes have been fully stripped.}
 }
 
 
 \newglossaryentry{TII-SNe}{
-name = {Type II SNe},
-description = {A SNe \textbf{with} hydrogen in its spectra \\ generally found in galaxies with high star formation rate. Likely caused by core collaspe}
+name={Type II SNe},
+description={A SNe \textbf{with} hydrogen in its spectra \\ generally found in galaxies with high star formation rate. Likely caused by core collaspe}
 }
 
-\newglossaryentry{WR}{
-name = {WR},
-description = {Wolf-Rayet star. \\A star so massive (generally more than \(\sim25M_\odot\)) that it sheds its hydrogen layer due to stellar wind. It may also shed its helium layer as well.}
-}
-
-\newglossaryentry{Chandrasekhar-limit}{
-name = {Chandrasekhar limit},
-description = {Maxium mass of a WD, \(\sim1.4M_\odot\)}
-}
-
-\newglossaryentry{edge-limit-detonation}{
-name = {edge limit detonation},
-description = {A WD SNe trigged by accreted H/He on the suface which sends a shockwave into the star, trigging runaway fusion.}
-}
-
-\newglossaryentry{SD}{
-name = {SD},
-description = {\textit{Single Degenerate}, donor is a normal star, accretor is WD}
-}
-
-\newglossaryentry{DD}{
-name = {DD},
-description = {\textit{Double Degenerate}, donor as well as accretor are WDs}
-}
-
-\newglossaryentry{Blue-stragglers}{
-name = {Blue stragglers},
-description = {}
-}
-
-\newglossaryentry{Barium-stars}{
-name = {Barium stars},
-description = {G and K type gaints with a `overabundance' of barium and other s-process elements \\Wide binaries with longer periods}
+\newglossaryentry{WR-star}{
+name={WR star},
+description={Wolf-Rayet star. \\A helium star of mass They are genally so massive (typically more than \(\sim25M_\odot\)) that it sheds its hydrogen layer due to stellar wind. It may also shed its helium layer as well.}
 }
 
 \newglossaryentry{WNh}{
-name = {WNh},
-description = {Very massive stars with strong stellar winds, leading to spectra very similar to that of WRs, but with with hydrogen emission}
+name={WNh},
+description={Very massive stars with strong stellar winds, leading to spectra very similar to that of WRs, but also with hydrogen emission. These have ejected their outer shells of hydrogen, and show distinct He and/or C emission, buta also is still doing H fusion in the core}
 }
 
+
+
+\newglossaryentry{edge-limit-detonation}{
+name={edge limit detonation},
+description={A WD SNe trigged by accreted H/He on the suface which sends a shockwave into the star, trigging runaway fusion.}
+}
+
+\newglossaryentry{SD}{
+name={SD},
+description={\textit{Single Degenerate}, donor is a normal star, accretor is WD}
+}
+
+\newglossaryentry{DD}{
+name={DD},
+description={\textit{Double Degenerate}, donor as well as accretor are WDs}
+}
+
+\newglossaryentry{Blue-stragglers}{
+name={Blue stragglers},
+description={}
+}
+
+\newglossaryentry{Barium-stars}{
+name={Barium stars},
+description={G and K type gaints with a `overabundance' of barium and other s-process elements \\Wide binaries with longer periods}
+}
+
+
 \newglossaryentry{eddington-limit}{
-name = {Eddington Limit},
-description = {\(\dot{M}_{Edd} \simeq 1.8 \times 10^{-8} M_\odot \mathrm{yr}^{-1}\) For NS \\ Maxium rate of mass transfer onto a NS or BH }
+name={Eddington Limit},
+description={\(\dot{M}_{Edd} \simeq 1.8 \times 10^{-8} M_\odot \mathrm{yr}^{-1}\) For NS \\ Maxium rate of mass transfer onto a NS or BH }
 }
 
 \newglossaryentry{thermal-timescale}{
-name = {thermal timescale},
-description = {}
+name={thermal timescale},
+description={}
 }
 
 \newglossaryentry{consv-RLO}{
-name = {Conservative Roche lobe overflow},
-description = {RLO where the total mass and angular momentum remain constant. Is an example of Huangs \textit{slow mode}}
+name={Conservative Roche lobe overflow},
+description={RLO where the total mass and angular momentum remain constant. Is an example of Huangs \textit{slow mode}}
 }
 
 \newglossaryentry{ML-CircumDisk}{
-name = {Mass loss from a circumbinary disk}, %circumbinary disk?? i hardly know her!
-description = {Ejected mass from mass transfer/winds a ring orbiting the system (a circumbinary disk).\\ Refered to by Huang as an \textit{intermediate mode}. Due to tidal interactions these rings ``extract'' angular momentum from the system }
+name={Mass loss from a circumbinary disk}, %circumbinary disk?? i hardly know her!
+description={Ejected mass from mass transfer/winds a ring orbiting the system (a circumbinary disk).\\ Refered to by Huang as an \textit{intermediate mode}. Due to tidal interactions these rings ``extract'' angular momentum from the system }
 }
 
 \newglossaryentry{Case-A-RLO}{
-name = {Case A RLO},
-description = {RLO during donor hydrogen core burning}
+name={Case A RLO},
+description={RLO during donor hydrogen core burning}
 }
 
 \newglossaryentry{Case-B-RLO}{
-name = {Case B RLO},
-description = {This is where the donor star is post hydrogen core/shell burning}
+name={Case B RLO},
+description={This is where the donor star is post hydrogen core/shell burning}
 }
 
 \newglossaryentry{antibiotic-index}{
-name = {antibiotic index},
-description = {Also called a heart capacity ratio. A very very very simplified and abstract defenition is how much a gas will expand when heated. \url{https://en.wikipedia.org/wiki/Heat_capacity_ratio}}
+name={antibiotic index},
+description={Also called a heart capacity ratio. A very very very simplified and abstract defenition is how much a gas will expand when heated. \url{https://en.wikipedia.org/wiki/Heat_capacity_ratio}}
 }
 
 \newglossaryentry{photon-gas}{
-name = {photon gas},
-description = {A `gas-like' collection of photons. This means that they have a tempature, pressure, and entropy. \\ They are most common in black-body equilibrums. \url{https://en.wikipedia.org/wiki/Photon_gas}}
+name={photon gas},
+description={A `gas-like' collection of photons. This means that they have a tempature, pressure, and entropy. \\ They are most common in black-body equilibrums. \url{https://en.wikipedia.org/wiki/Photon_gas}}
 }
 
 \newglossaryentry{eddington-lum-limit}{
-name = {Eddington (Luminosity) Limit},
-description = {The uper limit of the mass of a star, defined as \(3.2 \times 10^4 \left(\frac{M}{M_\odot}\right)L_\odot\)}
+name={Eddington (Luminosity) Limit},
+description={The uper limit of the mass of a star, defined as \(3.2 \times 10^4 \left(\frac{M}{M_\odot}\right)L_\odot\)}
 }
 
 \newglossaryentry{RSG}{
-name = {RSG},
-description = {Red-supergiant \\ Supergaint stars with a spectral class of M or K  }
+name={RSG},
+description={Red-supergiant \\ Supergaint stars with a spectral class of M or K  }
 }
 
 \newglossaryentry{ONeMg}{
-name = {ONeMg},
-description = {Fill this in later hopefully. Pretty sure it just means Oxygen, Neon and Magnesium?}
+name={ONeMg},
+description={Fill this in later hopefully. Pretty sure it just means Oxygen, Neon and Magnesium?}
 }
 
 \newglossaryentry{chandrasekhar-limit}{
-name = {Chandrasekhar Limit},
-description = {Maxiumum mass of a white dwarf, approx \(M \approx 1.4M_\odot\)\\ This is support be electron degeneracy pressure}
+name={Chandrasekhar Limit},
+description={Maxiumum mass of a white dwarf, approx \(M \approx 1.4M_\odot\)\\ This is support be electron degeneracy pressure}
 }
 
+\newglossaryentry{magnetic-breaking}{
+name={magnetic breaking},
+description={the process of a star magnetic field binding with the winds (or gas, etc), causing the stars spin to slow due to consv of ang momentum}
+}
 
+\newglossaryentry{LVB}{
+name = {LVB},
+description = {luminos blue variables.\\ These are which \(T_{eff} > 20000\text{K}\) }
+}
 
-
-
+\newglossaryentry{AGB}{
+name = {AGB},
+description = {Asymptontic Giant Branch. \\Part of the HR diagram where stars evolve off MS and into gaints}
+}
 
 \makeglossaries 
 
@@ -315,7 +324,7 @@ Binaries where one star passes in front of the other at some point during its pe
 \item \gls{TII-SNe} 
 \end{list}
 \item due to the fact that \gls{TIb-SNe} and \gls{TIc-SNe} are stripped cores, it is incredibly likely that they result from binary systems
-\item We may also observe both \gls{TIb-SNe} and \gls{TIc-SNe} in \gls{WR}, however, we have \textbf{not} yet
+\item We may also observe both \gls{TIb-SNe} and \gls{TIc-SNe} in \gls{WR-star}, however, we have \textbf{not} yet
 \item WD SNe (section \ref{WD-SNe}) \textit{require} some sort of mass transfer process
 \item The companion donor can be either a standard star (\gls{SD}), or another WD (\gls{DD})
 \end{list}
@@ -337,7 +346,7 @@ This is generally all math that I either know from astro classes, or is so speci
 \subsection{Very massive stars}
 \begin{list}{-}{}
 \item Most massive has \(L \sim 10^ L_\odot\)
-\item Because of the high (\(\sim50000k\)) temps, they have strong stellar wind, and thus very similar spectra to \gls{WR}, which they are distinguished from by the presence of hydrogen 
+\item Because of the high (\(\sim50000k\)) temps, they have strong stellar wind, and thus very similar spectra to \gls{WR-star}, which they are distinguished from by the presence of hydrogen 
 \item Denoted as \gls{WNh}
 \end{list}
 
@@ -525,8 +534,14 @@ Time it takes for a star to use all of its available fuel
 \item 
 \end{list}
 
-\subsection{Stars in the range of \(8-12 M_\odot\) }
+\subsubsection{Mass limit at \(\sim 1.5 M_\odot\)}
 \begin{list}{-}{}
+\item Masses less than \(\sim 1.5 M_\odot\) have convective outer envelope and ones higher are radiative. 
+\item This convective envelope creates a magnetic field, this magnetic field can cause \gls{magnetic-breaking}, leading to stars of this mass range having slower spins
+\end{list}
+
+\subsection{Stars in the range of \(8-12 M_\odot\)}
+\begin{list}{-}{} \label{test}
 \item Not very well is known about evolution in this range
 \item Generally, the carbon in the ore will ignite and leave a degenerate \gls{ONeMg} core
 \item This happens after they eject their hydrogen envelope, but in binaries this envelope is lost through mass transfer
@@ -535,11 +550,34 @@ Time it takes for a star to use all of its available fuel
 \end{list}
 
 
+\subsection{Effects of wind mass loss, metallicity, and rotation}
+\begin{list}{-}{}
+\item If a star has very fast spin, the helium in the core can get mixed into the whole star, preventing the star from becoming a giant, instead leading it towards becoming a \gls{WR-star}\footnote{This is cool as shit. Blender star my beloved}. This can happen with stars with of low of mass as \(15M_\odot\), as compared to the typical progenitor mass of \(\sim25M_\odot\)
+\item Non-rotating stars can become much more massive
+% \item \gls{RSG}s are much more common which stars of higher (sun-like) metallicities
+\end{list}
+
+\subsection{Final Evo of stars in the range of \(1- 8 M_\odot\)}
+\begin{list}{-}{}
+\item Unstable pulsing
+\item Very strong stellar winds
+\item If they're low enough mass, (\(<8M\odot\)), they can become WDs before carbon ignition
+\end{list}
+
+
+\subsection{Final Evolution and core collapse of stars more massive than \(8M\odot\)}
+
+
+\subsubsection{Between 8 and \(\sim 10 -12\)}
+\begin{list}{-}{}
+\item When the core approaches the \gls{chandrasekhar-limit} thus begins the onset of core collapse 
+\item 
+\end{list}
 \setcounter{section}{-1}
 \section{Misc}
 \subsection{WD SNe}\label{WD-SNe}
 \begin{list}{-}{}
-\item This, simply-ish put, is caused by because a WD cannot reach hydrostatic equilibrium. A pressure increase does \textbf{not} lead to increase and radius, and thus cooling, instead, it just increases heat, and thus fusion, quickly getting out of hand. Can b trigged if the \gls{Chandrasekhar-limit} is crossed, as well as if a layer of H/He on top entities, called a \gls{edge-limit-detonation} or ``sub-Chandrasekhar'' explosions.
+\item This, simply-ish put, is caused by because a WD cannot reach hydrostatic equilibrium. A pressure increase does \textbf{not} lead to increase and radius, and thus cooling, instead, it just increases heat, and thus fusion, quickly getting out of hand. Can b trigged if the \gls{chandrasekhar-limit} is crossed, as well as if a layer of H/He on top entities, called a \gls{edge-limit-detonation} or ``sub-Chandrasekhar'' explosions.
 \item In \gls{DD} systems the WDs must have a small separation, causing \gls{GWR} to shrink the separation until merger \(\rightarrow\) SNe
 \end{list}
 \clearpage
