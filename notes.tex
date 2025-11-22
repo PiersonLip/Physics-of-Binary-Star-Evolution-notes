@@ -1,17 +1,202 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Define Article %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Using Packages %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{empheq}
+\usepackage{mdframed}
+\usepackage{booktabs}
+\usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage{color}
+% \usepackage{psfrag}
+\usepackage{pgfplots}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage[most]{tcolorbox}
+\usepackage{xparse}
 \usepackage{darkmode}
-\usepackage{amsmath,amssymb}
 \usepackage[stable]{footmisc}
 \usepackage{gensymb}
-% \usepackage{siunitx}
+\usepackage{siunitx}
 \usepackage[colorlinks]{hyperref}
-\usepackage[automake]{glossaries-extra}
+\usepackage{fancyhdr}
 
-\title{Default Title}
-\author{Pierson Lipschultz}
+
+% --- Glossaries + TikZ externalization friendly setup ---
+\makeatletter
+\@ifundefined{pgfexternalrealjob}{%
+  % Main document run: full glossaries with automake
+  \usepackage[automake]{glossaries-extra}%
+}{%
+  % External TikZ runs: minimal glossaries that don't try to build/read files
+  \usepackage[nostyles]{glossaries-extra}%
+  % Pretend glossary files don't exist, so no "use \makeglossaries" error
+  \def\glsifexists#1#2#3{#3}%
+}
+\makeatother
+
+\usetikzlibrary{calc,decorations.pathreplacing, arrows.meta, positioning, external}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Other Settings
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Page Setting %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\geometry{a4paper}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Define some useful colors %%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{ocre}{RGB}{243,102,25}
+\definecolor{mygray}{RGB}{243,243,244}
+\definecolor{deepGreen}{RGB}{26,111,0}
+\definecolor{shallowGreen}{RGB}{235,255,255}
+\definecolor{deepBlue}{RGB}{61,124,222}
+\definecolor{shallowBlue}{RGB}{235,249,255}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% Define an orangebox command %%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand\orangebox[1]{\fcolorbox{ocre}{mygray}{\hspace{1em}#1\hspace{1em}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% English Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorem Macro %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newtheoremstyle{mytheoremstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\newtheoremstyle{myproblemstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\theoremstyle{mytheoremstyle}
+\newmdtheoremenv[linewidth=1pt,
+                backgroundcolor=black!60,
+                fontcolor = white!90,
+                linecolor=deepGreen,
+                leftmargin=0pt,
+                innerleftmargin=20pt,
+                innerrightmargin=20pt,]{theorem}{Theorem}[section]
+\theoremstyle{mytheoremstyle}
+\newmdtheoremenv[linewidth=1pt,backgroundcolor=shallowBlue,linecolor=deepBlue,leftmargin=0pt,innerleftmargin=20pt,innerrightmargin=20pt,]{definition}{Definition}[section]
+\theoremstyle{myproblemstyle}
+\newmdtheoremenv[linecolor=black,leftmargin=0pt,innerleftmargin=10pt,innerrightmargin=10pt,]{problem}{Problem}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\theoremstyle{myproblemstyle}
+\newmdtheoremenv[
+  linecolor=black,
+  leftmargin=0pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+]{example}{Example}[section]
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%% Equation Macro %%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Simple mdframed style for equation boxes (no TikZ)
 
 \enabledarkmode
 
+
+\newmdenv[
+  linewidth=0.5pt,
+  linecolor=white!100,
+  backgroundcolor=black!70,
+  fontcolor=white!90,
+  leftmargin=0pt,
+  rightmargin=0pt,
+  skipabove=\baselineskip,
+  skipbelow=\baselineskip,
+  innertopmargin=6pt,
+  innerbottommargin=6pt,
+  innerleftmargin=6pt,
+  innerrightmargin=6pt
+]{eqbox}
+
+\ExplSyntaxOn
+\seq_new:N \g_piers_eq_seq
+
+% Store (label, title, equation-body) for later printing
+\cs_new_protected:Npn \piers_add_eq:nnn #1#2#3
+  {
+    \seq_gput_right:Nn \g_piers_eq_seq
+      { \piers_eq_entry:nnn {#1}{#2}{#3} }
+  }
+
+% How each equation is printed in the final summary
+\cs_new_protected:Npn \piers_eq_entry:nnn #1#2#3
+  {
+    \par\noindent
+    \begin{minipage}{0.72\linewidth}
+      \begin{equation*}
+        #3
+      \end{equation*}
+    \end{minipage}
+    \begin{minipage}{0.9\linewidth}
+      \raggedright
+      \qquad\eqref{#1}\;(\textit{#2})
+    \end{minipage}
+
+    \par\bigskip
+  }
+
+% Environment: \begin{eqboxed}{label}{Title}{Description} <equation> \end{eqboxed}
+\NewDocumentEnvironment{eqboxed}{ m m m +b }
+  {
+    % begin code: mdframed-based, no TikZ
+    \begin{eqbox}
+      {\bfseries #2}\par\vspace{0.4em}%
+      \begin{equation}
+        \label{#1}
+        #4
+      \end{equation}
+      #3
+    \end{eqbox}
+    % store equation body for later
+    \piers_add_eq:nnn{#1}{#2}{#4}
+  }
+  {
+    % end code
+  }
+
+% Command to print all stored equations at the end
+\NewDocumentCommand{\PrintAllEquations}{}
+  {
+    \section{Equations}
+    \seq_use:Nn \g_piers_eq_seq { }
+  }
+\ExplSyntaxOff
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Plotting Settings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepgfplotslibrary{colorbrewer}
+\pgfplotsset{width=8cm,compat=1.9}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% Title & Author %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\title{Notes}
+\author{Pierson Lipschultz}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%% Glossary entries %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newglossaryentry{test}{
+name={test},
+description={test}
+}
+% Only do the real glossaries work in the main document run
+\tikzifexternalizing{}{%
+  \makeglossaries
+}
+
+\tikzexternalize[prefix=tikz-cache/]
+%%%%%%%5%%%%%%%%%%%%%%%%%%%55
 
 \newglossaryentry{algol-type}{
   name={Algol Type},
@@ -27,7 +212,7 @@ description={A merger of either a NS+NS (DNS) binary or a NS+BH binary. Results 
 name={Proper Motion},
 description={The motion of a star in the sky relative to more distant stars. Allows us understand the velocity of a star relative to the earth}
 }
-
+ 
 \newglossaryentry{MSP}{
 name={MSP},
 description={Milisecond Pulsar. \\ A pulsar with a spin period \(\sim 30\)ms}
@@ -40,7 +225,7 @@ description={gravitnal wave radiation.\\ Process of stars losing angular momentu
 
 \newglossaryentry{MB}{
 name={MB},
-description={Magnetic Breaking. \\ Process where two stars ``couple'', causing a loss of angular momentum}
+description={Magnetic Breaking. \\ Process whbere two stars ``couple'', causing a loss of angular momentum}
 }
 
 \newglossaryentry{Recylced-Pulsar}{
@@ -190,9 +375,24 @@ description = {Asymptontic Giant Branch. \\Part of the HR diagram where stars ev
 
 
 \begin{document}
-\tableofcontents
+    \pagestyle{fancy}
 
+    \fancyhf{}
+    \fancyfoot[L]{\nouppercase{\leftmark}} % "1 INTRODUCTION"
+    \fancyfoot[R]{\thepage}                               % page number on right
+
+    % Remove header rule and add footer rule instead
+    \renewcommand{\headrulewidth}{0pt}
+    \renewcommand{\footrulewidth}{1pt}
+    \renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+    \tableofcontents
+
+\pagebreak
 \section{Intro}
+\hrule
+\vspace{.5cm}
+
 \noindent \textbf{\large Importance of binaries}
 \begin{list}{-}{}
 \item Plays a key role in the evolution of massive stars
@@ -202,7 +402,11 @@ description = {Asymptontic Giant Branch. \\Part of the HR diagram where stars ev
 \item cause of low-intermediate mass stars with odd chemical compositions, ex. barium stars. 
 \end{list}
 
+\pagebreak
 \section{Visual binaries and the universal validity of the laws of physics}
+\hrule
+\vspace{.5cm}
+
 
 \subsection{Visual binaries}
 \begin{list}{-}{}
@@ -336,7 +540,11 @@ Binaries where one star passes in front of the other at some point during its pe
 \end{list}
 
 
+\pagebreak
 \section{Orbits and masses of spectroscopic binaries}
+\hrule
+\vspace{.5cm}
+
 \setcounter{subsection}{3}
 \subsection{}
 This is generally all math that I either know from astro classes, or is so specific id need to revisit it to use anyway\\
@@ -382,7 +590,12 @@ This is generally all math that I either know from astro classes, or is so speci
 \end{list}
 the rest of this section follows the ``way too niche of math to write down'' thing
 
-\section{Roche equipotential}\footnote{I have a ridiculous amount of notes and a whole essay written about this, so notes here Wil be pretty light}
+\pagebreak
+\section{Roche equipotential}
+\textit{\small I have a ridiculous amount of notes and a whole essay written about this, so notes here will be pretty light}
+\vspace{.1cm}
+\hrule
+\vspace{.5cm}
 
 \begin{list}{-}{}
 \item This is some black magic mathmathmatic reasoning 
@@ -467,9 +680,13 @@ the rest of this section follows the ``way too niche of math to write down'' thi
 \item 
 \end{list}
 
+
 \pagebreak
 \setcounter{section}{7}
 \section{Evolution of single stars}
+\hrule
+\vspace{.5cm}
+F
 \subsection{Why stars do stuff\footnote{trying to focus on some of the math here, cause while i conceptually understand it, the math is really neat}}
 \begin{list}{-}{}
 \item A globe of monatomic gas without energy sources and in HSEq follows
@@ -491,14 +708,23 @@ the rest of this section follows the ``way too niche of math to write down'' thi
 \item This applies to the star from the moment it is a gas to the end of its life as BH, NS, WD, etc
 \item These equations work well for \gls{antibiotic-index} of  \(\gamma = C_p/C_V = 5/3\), which is great for globes of ionized hydrogen and helium. However, generalized forms can be found with eqs 8.6-8.8
 \item if \(\gamma \leq 4/3\), the star \textbf{cannot} reach HSEq, and thus must collapse or explode
-\item Stars of very high mass have very high luminties, which mean their interior pressure is dominated by \gls{photon-gas}, which has \(\gamma = 4/3\). This sets an upper limit for the mass of a star, also called the \gls{eddington-lum-limit}
+\item Stars of very high mass have very high luminosites, which mean their interior pressure is dominated by \gls{photon-gas}, which has \(\gamma = 4/3\). This sets an upper limit for the mass of a star, also called the \gls{eddington-lum-limit}
 \end{list}
 
 \subsection{Stellar Timescales}
 There are three timescales for single star evo that are relevant for binary stellar evo
 
 \subsubsection{Dynamical Pulsation timescale}
-This is the timescale of how long it takes for a start to restore a perturbation of its HSEq. This can be defined as the time it takes for a sound way with velocity \(c_s\) to cross the stellar radius 
+
+
+\begin{theorem}[Dynamical-Pulsation-timescale]
+  Description
+  
+  This is the timescale of how long it takes for a start to restore a perturbation of its HSEq. This can be defined as the time it takes for a sound way with velocity \(c_s\) to cross the stellar radius
+  \[\tau_{dyn} = \frac{R}{c_s} \simeq 50 \text{min}\left(\frac{\bar{\rho_{\odot}}}{\bar{\rho}}\right)^{1/2}\]
+  Where \(\bar{\rho}\) is the mean mass density.
+\end{theorem}
+
 \[\tau_{dyn} = \frac{R}{c_s} \simeq 50 \text{min}\left(\frac{\bar{\rho_{\odot}}}{\bar{\rho}}\right)^{1/2}\] 
 \\ Where \(\bar{\rho}\) is the mean mass density 
 
