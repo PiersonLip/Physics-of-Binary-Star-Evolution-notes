@@ -63,17 +63,17 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%% Define an orangebox command %%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand\orangebox[1]{\fcolorbox{ocre}{mygray}{\hspace{1em}#1\hspace{1em}}}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%% English Environments %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%% Theorem Macro %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\newtheoremstyle{mytheoremstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
-\newtheoremstyle{myproblemstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{black}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\newtheoremstyle{mytheoremstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{white}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
+\newtheoremstyle{myproblemstyle}{3pt}{3pt}{\normalfont}{0cm}{\rmfamily\bfseries}{}{1em}{{\color{white}\thmname{#1}~\thmnumber{#2}}\thmnote{\,--\,#3}}
 \theoremstyle{mytheoremstyle}
+
 \newmdtheoremenv[linewidth=1pt,
-                backgroundcolor=black!60,
+                backgroundcolor=black!85,
                 fontcolor = white!90,
-                linecolor=deepGreen,
+                linecolor=white!100,
                 leftmargin=0pt,
                 innerleftmargin=20pt,
                 innerrightmargin=20pt,]{theorem}{Theorem}[section]
@@ -718,15 +718,12 @@ There are three timescales for single star evo that are relevant for binary stel
 
 
 \begin{theorem}[Dynamical-Pulsation-timescale]
-  Description
-  
-  This is the timescale of how long it takes for a start to restore a perturbation of its HSEq. This can be defined as the time it takes for a sound way with velocity \(c_s\) to cross the stellar radius
+
   \[\tau_{dyn} = \frac{R}{c_s} \simeq 50 \text{min}\left(\frac{\bar{\rho_{\odot}}}{\bar{\rho}}\right)^{1/2}\]
   Where \(\bar{\rho}\) is the mean mass density.
-\end{theorem}
 
-\[\tau_{dyn} = \frac{R}{c_s} \simeq 50 \text{min}\left(\frac{\bar{\rho_{\odot}}}{\bar{\rho}}\right)^{1/2}\] 
-\\ Where \(\bar{\rho}\) is the mean mass density 
+  This is the timescale of how long it takes for a start to restore a perturbation of its HSEq. This can be defined as the time it takes for a sound way with velocity \(c_s\) to cross the stellar radius
+\end{theorem}
 
 
 \subsubsection{Thermal/Kelvin-Helmholtz timescale}
