@@ -9,3 +9,10 @@ Thomas M. Tauris, Edward P.J. van den Heuvel - Physics of Binary Star Evolution-
 *.toc
 *.gls
 .vscode/ltex.dictionary.en-US.txt
+*.blg
+*bbl 
+*blg
+*.fdb_latexmk
+*.bbl-SAVE-ERROR
+*.bcf
+*.xml
