@@ -17,3 +17,4 @@ RLOF
 HeS
 Wolf-Rayet
 subdwarf
+accretor
